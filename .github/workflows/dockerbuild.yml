@@ -26,3 +26,8 @@ jobs:
       with:
         input: docker-archive://osu.tar
         output: osu.sif
+    - name: Upload singularity container
+      uses: ./rescale-upload
+      with:
+        filename: osu.sif
+        token: ${{ secrets.RESCALE_API_KEY }}

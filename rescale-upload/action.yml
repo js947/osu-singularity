@@ -1,0 +1,21 @@
+name: Rescale upload
+description: upload a file to rescale
+inputs:
+  token:
+    description: Rescale API key
+    required: true
+  filename:
+    description: File to upload
+    required: true
+  platform: Rescale platform
+    decription: Rescale platform address
+    required: false
+    default: platform.rescale.com
+runs:
+  using: 'docker'
+  image: Dockerfile
+  args:
+    - ${{ inputs.filename }}
+  env:
+    RECSALE_API_TOKEN: ${{ inputs.token }}
+    RESCALE_PLATFORM: ${{ inputs.platform }}
