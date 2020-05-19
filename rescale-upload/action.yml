@@ -4,7 +4,7 @@ inputs:
   rescale_token:
     description: Rescale API key
     required: true
-  rescale_platform: Rescale platform
+  rescale_platform:
     decription: Rescale platform address
     required: false
     default: platform.rescale.com
