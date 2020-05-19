@@ -38,4 +38,4 @@ jobs:
       uses: ./rescale-upload
       with:
         filename: osu.sif
-        token: ${{ secrets.RESCALE_API_KEY }}
+        rescale_token: ${{ secrets.RESCALE_API_KEY }}
