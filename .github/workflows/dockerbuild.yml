@@ -1,0 +1,23 @@
+name: Build Docker Image
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build . --tag osu
+    - name: Save Docker image
+      run: docker save -o osu.tar osu
+    - uses: actions/upload-artifact@v2
+      with:
+        path: osu.tar
