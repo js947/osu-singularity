@@ -23,3 +23,6 @@ jobs:
         path: osu.tar
     - name: Build singularity container
       uses: ./singularity
+      with:
+        input: osu.tar
+        output: osu.sif

@@ -1,5 +1,16 @@
 name: Singularity build
 description: Build singularity container from local docker
+inputs:
+  archive:
+    description: "docker tar file"
+    required: true
+  output:
+    description: "name of output image"
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  args:
+    - build
+    - ${{ inputs.output }}
+    - docker-archive://${{ inputs.archive }}
