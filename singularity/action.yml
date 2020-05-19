@@ -1,2 +1,5 @@
 name: Singularity build
 description: Build singularity container from local docker
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
