@@ -2,8 +2,8 @@
 import os, sys
 import requests
 
-token = os.environ['RESCALE_API_TOKEN']
-platform = os.environ['RESCALE_PLATFORM']
+token = os.environ['INPUT_RESCALE_TOKEN']
+platform = os.environ['INPUT_RESCALE_PLATFORM']
 filename = sys.argv[1]
 
 requests.post(
