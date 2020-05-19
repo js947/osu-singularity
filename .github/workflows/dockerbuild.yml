@@ -14,18 +14,26 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
     - name: Build the Docker image
       run: docker build . --tag osu
     - name: Save Docker image
       run: docker save -o osu.tar osu
     - uses: actions/upload-artifact@v2
       with:
+        name: osu.tar
         path: osu.tar
+
     - name: Build singularity container
       uses: ./singularity
       with:
         input: docker-archive://osu.tar
         output: osu.sif
+    - uses: actions/upload-artifact@v2
+      with:
+        name: osu.sif
+        path: osu.sif
+
     - name: Upload singularity container
       uses: ./rescale-upload
       with:
