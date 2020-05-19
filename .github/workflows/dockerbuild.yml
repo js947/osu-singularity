@@ -24,5 +24,5 @@ jobs:
     - name: Build singularity container
       uses: ./singularity
       with:
-        input: osu.tar
+        input: docker-archive://osu.tar
         output: osu.sif

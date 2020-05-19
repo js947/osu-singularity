@@ -1,11 +1,11 @@
 name: Singularity build
 description: Build singularity container from local docker
 inputs:
-  archive:
-    description: "docker tar file"
+  input:
+    description: "input source e.g. docker://centos"
     required: true
   output:
-    description: "name of output image"
+    description: "output image e.g. centos.sif"
     required: true
 runs:
   using: 'docker'
@@ -13,4 +13,4 @@ runs:
   args:
     - build
     - ${{ inputs.output }}
-    - docker-archive://${{ inputs.archive }}
+    - ${{ inputs.input }}
