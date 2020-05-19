@@ -11,6 +11,11 @@ inputs:
   filename:
     description: File to upload
     required: true
+outputs:
+  status:
+    description: HTTP status
+  id:
+    description: File ID
 runs:
   using: 'docker'
   image: Dockerfile

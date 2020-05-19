@@ -15,6 +15,8 @@ with open(filename, 'rb') as f:
       files={'file': f}
     )
 
-print("status=", r.status_code)
-print("response")
-pprint.pprint(r.json())
+response = r.json()
+pprint.pprint(response)
+
+print("::set-output name=status::%s" % r.status_code)
+print("::set-output name=id::%s" % response['id'])
